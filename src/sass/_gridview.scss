@@ -1,0 +1,62 @@
+//Variables
+$minimum-sdim: 768px;
+$minimum-selem: 10rem;
+$maximum-selem: 20rem;
+
+//Mixin, Función
+@mixin gridprops($size) {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit,minmax($size,1fr));
+}
+
+.screen25 {
+    @include gridprops(25%);
+}
+
+.screen50 {
+    @include gridprops(50%);
+}
+
+.screen75 {
+    @include gridprops(75%);
+}
+
+.screen100 {
+    @include gridprops(100%);
+}
+
+
+//Media query para ajustar tamaño de elementos
+@media screen and (max-width: $minimum-sdim) {
+    .screen25 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax($minimum-selem,$maximum-selem));
+        justify-content: center;
+    }
+
+    .screen50 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax($minimum-selem,$maximum-selem));
+        justify-content: center;
+    }
+
+    .screen75 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax($minimum-selem,$maximum-selem));
+        justify-content: center;
+    }
+
+    .screen100 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,100%);
+        justify-content: center;
+    }
+}
+
+/*la imagen está demasiado grande entonces aplico esta regla en general para que se vea completa*/
+img {
+    max-width:50%;
+    max-height:50%;
+  }
+
