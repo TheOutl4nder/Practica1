@@ -22,10 +22,6 @@ function getQuery(event) {
 function fetchNews(url) {
     return __awaiter(this, void 0, void 0, function* () {
         let res = yield (yield fetch(url)).json();
-        //we remove all previous news
-        while (newsCont.firstChild) {
-            newsCont.removeChild(newsCont.firstChild);
-        }
         document.getElementById('news-container').innerHTML = template(res);
         console.log('done');
     });
